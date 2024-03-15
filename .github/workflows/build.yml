@@ -1,7 +1,9 @@
 # module du helios launcher
 name: Launcher Build
 
-on: push
+on:
+  push:
+    branches: [ versiones ]
 
 jobs:
   release:
@@ -29,7 +31,7 @@ jobs:
           python-version: 3.x
 
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
         shell: bash
 
       - name: Build
