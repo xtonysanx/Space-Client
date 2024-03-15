@@ -1,29 +1,31 @@
 # module du helios launcher
 name: Launcher Build
+
 on:
   push:
-    branches: [ versiones ]
+    branches: 
+      - versiones
 
 jobs:
   create-release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Get version
-        run: echo "VERSION=$(jq -r .version package.json)" >> $GITHUB_ENV
+        run: echo "version=$(jq -r .version package.json)" >> $GITHUB_ENV
       
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ env.VERSION }}
-          release_name: release ${{ env.VERSION }}
+          tag_name: ${{ env.version }}
+          release_name: release ${{ env.version }}
           draft: false
-          prerelease: ${{ contains(env.VERSION, 'beta') || contains(env.VERSION, 'alpha') }}
+          prerelease: ${{ contains(env.version, 'beta') || contains(env.version, 'alpha') }}
 
   build-launcher:
     needs: create-release
@@ -31,13 +33,16 @@ jobs:
 
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: 
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Set up Node.js 20.x
+      - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
@@ -48,9 +53,10 @@ jobs:
           python-version: '3.x'
 
       - name: Install Dependencies
-        run: npm install
-        shell: bash
+        run: npm ci
 
       - name: Build
+        env:
+          GH_TOKEN: ${{ secrets.github_token }}
         run: npm run build
         shell: bash
