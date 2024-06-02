@@ -127,8 +127,8 @@ class Settings {
         let totalMem = Math.trunc(os.totalmem() / 1073741824 * 10) / 10;
         let freeMem = Math.trunc(os.freemem() / 1073741824 * 10) / 10;
 
-        document.getElementById("total-ram").textContent = `${totalMem} Go`;
-        document.getElementById("free-ram").textContent = `${freeMem} Go`;
+        document.getElementById("total-ram").textContent = `${totalMem} GB`;
+        document.getElementById("free-ram").textContent = `${freeMem} GB`;
 
         let sliderDiv = document.querySelector(".memory-slider");
         sliderDiv.setAttribute("max", Math.trunc((80 * totalMem) / 100));
@@ -149,13 +149,13 @@ class Settings {
         let minSpan = document.querySelector(".slider-touch-left span");
         let maxSpan = document.querySelector(".slider-touch-right span");
 
-        minSpan.setAttribute("value", `${ram.ramMin} Go`);
-        maxSpan.setAttribute("value", `${ram.ramMax} Go`);
+        minSpan.setAttribute("value", `${ram.ramMin} GB`);
+        maxSpan.setAttribute("value", `${ram.ramMax} GB`);
 
         slider.on("change", async (min, max) => {
             let config = await this.db.readData('configClient');
-            minSpan.setAttribute("value", `${min} Go`);
-            maxSpan.setAttribute("value", `${max} Go`);
+            minSpan.setAttribute("value", `${min} GB`);
+            maxSpan.setAttribute("value", `${max} GB`);
             config.java_config.java_memory = { min: min, max: max };
             this.db.updateData('configClient', config);
         });

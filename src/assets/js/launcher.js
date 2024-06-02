@@ -143,7 +143,7 @@ class Launcher {
                     console.log(`Tipo de cuenta: ${account.meta.type} | Usuario: ${account.name}`);
                     popupRefresh.openPopup({
                         title: 'Conectando',
-                        content: `Refrescando cuenta de: ${account.meta.type} | Usuario: ${account.name}`,
+                        content: `Cargando cuenta de: ${account.meta.type} | Usuario: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });
@@ -168,7 +168,7 @@ class Launcher {
                     console.log(`Tipo de cuenta: ${account.meta.type} | Usuario: ${account.name}`);
                     popupRefresh.openPopup({
                         title: 'Conectando',
-                        content: `Refrescando cuenta de: ${account.meta.type} | Usuario: ${account.name}`,
+                        content: `Cargando cuenta de: ${account.meta.type} | Usuario: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });
@@ -192,7 +192,7 @@ class Launcher {
                     console.log(`Tipo de cuenta: ${account.meta.type} | Usuario: ${account.name}`);
                     popupRefresh.openPopup({
                         title: 'Conectando',
-                        content: `Refrescando cuenta de: ${account.meta.type} | Usuario: ${account.name}`,
+                        content: `Cargando cuenta de: ${account.meta.type} | Usuario: ${account.name}`,
                         color: 'var(--color)',
                         background: false
                     });

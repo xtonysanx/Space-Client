@@ -137,7 +137,7 @@ class Home {
                         await this.db.updateData('configClient', configClient)
                     }
                 }
-            } else console.log(`Iniciando de Instancia ${instance.name}...`)
+            } else console.log(`Iniciando Instancia para ${instance.name}...`)
             if (instance.name == instanceSelect) setStatus(instance.status)
         }
 
