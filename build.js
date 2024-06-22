@@ -65,7 +65,7 @@ class Index {
                 generateUpdatesFilesForAllChannels: false,
                 appId: preductname,
                 productName: preductname,
-                copyright: 'Copyright © 2020-2024 Luuxis',
+                copyright: 'Copyright © 2020-2024 xToNySaNx',
                 artifactName: "${productName}-${os}-${arch}.${ext}",
                 extraMetadata: { main: 'app/app.js' },
                 files: ["app/**/*", "package.json", "LICENSE.md"],
@@ -127,9 +127,9 @@ class Index {
                 }
             }
         }).then(() => {
-            console.log('le build est terminé')
+            console.log('la compilación está terminada')
         }).catch(err => {
-            console.error('Error during build!', err)
+            console.error('Error durante la compilación!', err)
         })
     }
 
@@ -155,9 +155,9 @@ class Index {
             fs.writeFileSync("src/assets/images/icon.icns", png2icons.createICNS(Buffer, png2icons.BILINEAR, 0));
             fs.writeFileSync("src/assets/images/icon.ico", png2icons.createICO(Buffer, png2icons.HERMITE, 0, false));
             fs.writeFileSync("src/assets/images/icon.png", Buffer);
-            console.log('new icon set')
+            console.log('nuevo conjunto de iconos')
         } else {
-            console.log('connection error')
+            console.log('Error de Conexión')
         }
     }
 }

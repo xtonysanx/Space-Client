@@ -84,7 +84,7 @@ class Launcher {
     }
 
     async initConfigClient() {
-        console.log('Iniciando Configuración del Cliente...')
+        console.log('Configuración del Cliente Iniciada...')
         let configClient = await this.db.readData('configClient')
 
         if (!configClient) {
