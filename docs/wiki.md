@@ -52,7 +52,7 @@ ___
 
 - Patientez quelques secondes le temps de télécharger le projet sur votre ordinateur.
 
-![Clonage en cours...](./images/loading.png)
+![Clonage en cours.](./images/loading.png)
 
 - Une fois le projet téléchargé, cliquez sur "For my own purposes" puis sur "Continue" :
 
@@ -266,7 +266,7 @@ Vous devez également télécharger Visual C++ Redistributable Visual Studio 201
 - Recherchez (ctrl + f) la ligne suivante : "#ServerName www.example.com:80"
 - Retirez le # et sauvegardez le fichier.
 - Faites Win + r et entrez ceci "C:\Windows\System32\systempropertiesadvanced.exe" et cliquez sur entrer.
-- Cliquez dans "Variable d'environnement..." et sélectionnez "Path" cliquez sur "modifier" puis cliquez sur "Nouveau" et entrez "C:\Apache24\bin" et cliquez sur OK.
+- Cliquez dans "Variable d'environnement." et sélectionnez "Path" cliquez sur "modifier" puis cliquez sur "Nouveau" et entrez "C:\Apache24\bin" et cliquez sur OK.
 - Redémarrez votre ordinateur.
 - Ouvrez l'invite de commande (windows + R) et entrez cmd puis cliquez sur Ctrl + Shift + entrée windows va vous demander les droit administrateurs cliquez sur "Ok".
 - Entrez les commandes suivante :
@@ -290,7 +290,7 @@ ___
 - Une extrait renommer le dossier en "php"
 - Déplacez le dossier "php" dans le répertoire racine ("C:\ ") de votre ordinateur.
 - Faites Win + r et entrez ceci "C:\Windows\System32\systempropertiesadvanced.exe" et cliquez sur entrer.
-- Cliquez dans "Variable d'environnement..." et sélectionnez "Path" cliquez sur "modifier" puis cliquez sur "Nouveau" et entrez "C:\php" et cliquez sur OK.
+- Cliquez dans "Variable d'environnement." et sélectionnez "Path" cliquez sur "modifier" puis cliquez sur "Nouveau" et entrez "C:\php" et cliquez sur OK.
 - Redémarrez votre ordinateur.
 - Entrez les commandes suivante :
 

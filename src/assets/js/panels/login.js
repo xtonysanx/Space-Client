@@ -28,16 +28,22 @@ class Login {
     }
 
     async getMicrosoft() {
-        console.log('Iniciando cuenta de Microsoft...');
+        console.log('Iniciando cuenta de Microsoft.');
         let popupLogin = new popup();
         let loginHome = document.querySelector('.login-home');
         let microsoftBtn = document.querySelector('.connect-home');
+        let crackBtn = document.querySelector('.connect-crack');
         loginHome.style.display = 'block';
 
+        crackBtn.addEventListener("click", () => {
+            this.getCrack();
+        
+        });
+        
         microsoftBtn.addEventListener("click", () => {
             popupLogin.openPopup({
                 title: 'Conectando',
-                content: 'Espere por favor...',
+                content: 'Espere por favor⏳',
                 color: 'var(--color)'
             });
 
@@ -61,7 +67,7 @@ class Login {
     }
 
     async getCrack() {
-        console.log('Iniciando cuenta Offline...');
+        console.log('Iniciando cuenta Offline.');
         let popupLogin = new popup();
         let loginOffline = document.querySelector('.login-offline');
 
@@ -104,7 +110,7 @@ class Login {
     }
 
     async getAZauth() {
-        console.log('Iniciando cuenta de AZauth...');
+        console.log('Iniciando cuenta de AZauth.');
         let AZauthClient = new AZauth(this.config.online);
         let PopupLogin = new popup();
         let loginAZauth = document.querySelector('.login-AZauth');
@@ -121,8 +127,8 @@ class Login {
 
         AZauthConnectBTN.addEventListener('click', async () => {
             PopupLogin.openPopup({
-                title: 'Conexión en curso...',
-                content: 'Espere por favor...',
+                title: 'Conexión en curso.',
+                content: 'Espere por favor.',
                 color: 'var(--color)'
             });
 
@@ -156,8 +162,8 @@ class Login {
 
                 connectAZauthA2F.addEventListener('click', async () => {
                     PopupLogin.openPopup({
-                        title: 'Conexión en curso...',
-                        content: 'Espere por favor...',
+                        title: 'Conexión en curso.',
+                        content: 'Espere por favor.',
                         color: 'var(--color)'
                     });
 

@@ -18,7 +18,7 @@ const fs = require('fs');
 class Launcher {
     async init() {
         this.initLog();
-        console.log('Iniciando Launcher...');
+        console.log('Iniciando Launcher.');
         this.shortcut()
         await setBackground()
         if (process.platform == 'win32') this.initFrame();
@@ -60,7 +60,7 @@ class Launcher {
     }
 
     initFrame() {
-        console.log('Iniciando Marco...')
+        console.log('Iniciando Marco.')
         document.querySelector('.frame').classList.toggle('hide')
         document.querySelector('.dragbar').classList.toggle('hide')
 
@@ -84,7 +84,7 @@ class Launcher {
     }
 
     async initConfigClient() {
-        console.log('Configuración del Cliente Iniciada...')
+        console.log('Configuración del Cliente Iniciada.')
         let configClient = await this.db.readData('configClient')
 
         if (!configClient) {
@@ -117,7 +117,7 @@ class Launcher {
     createPanels(...panels) {
         let panelsElem = document.querySelector('.panels')
         for (let panel of panels) {
-            console.log(`Iniciando ${panel.name} Panel...`);
+            console.log(`Iniciando ${panel.name} Panel.`);
             let div = document.createElement('div');
             div.classList.add('panel', panel.id)
             div.innerHTML = fs.readFileSync(`${__dirname}/panels/${panel.id}.html`, 'utf8');

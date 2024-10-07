@@ -137,7 +137,7 @@ class Home {
                         await this.db.updateData('configClient', configClient)
                     }
                 }
-            } else console.log(`Iniciando Instancia para ${instance.name}...`)
+            } else console.log(`Iniciando Instancia para ${instance.name}.`)
             if (instance.name == instanceSelect) setStatus(instance.status)
         }
 
@@ -283,7 +283,7 @@ class Home {
         launch.on('patch', patch => {
             console.log(patch);
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `Parche en progreso...`
+            infoStarting.innerHTML = `Parche en progreso.`
         });
 
         launch.on('data', (e) => {
@@ -293,7 +293,7 @@ class Home {
             };
             new logger('Minecraft', '#36b030');
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `En curso...`
+            infoStarting.innerHTML = `En curso.`
             console.log(e);
         })
 

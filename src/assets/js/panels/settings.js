@@ -54,7 +54,7 @@ class Settings {
                 if (e.target.classList.contains('account')) {
                     popupAccount.openPopup({
                         title: 'Conectando',
-                        content: 'Espere por favor...',
+                        content: 'Espere por favor.',
                         color: 'var(--color)'
                     })
 
@@ -73,7 +73,7 @@ class Settings {
                 if (e.target.classList.contains("delete-profile")) {
                     popupAccount.openPopup({
                         title: 'Conectando',
-                        content: 'Espere por favor...',
+                        content: 'Espere por favor.',
                         color: 'var(--color)'
                     })
                     await this.db.deleteData('accounts', id);
@@ -187,7 +187,7 @@ class Settings {
                 javaPathInputTxt.value = file;
                 configClient.java_config.java_path = file
                 await this.db.updateData('configClient', configClient);
-            } else alert("El nombre del archivo debe ser Java o Javaw");
+            } else alert("El archivo debe ser Java o Javaw");
         });
 
         document.querySelector(".java-path-reset").addEventListener("click", async () => {

@@ -50,14 +50,14 @@ class Splash {
 
     async checkUpdate() {
         if (dev) return this.startLauncher();
-        this.setStatus(`Buscando Actualización...`);
+        this.setStatus(`🔎Buscando Actualización🔍`);
 
         ipcRenderer.invoke('update-app').then().catch(err => {
-            return this.shutdown(`Error al buscar una actualización :<br>${err.message}`);
+            return this.shutdown(`❌Error al buscar una actualización :<br>${err.message}❌`);
         });
 
         ipcRenderer.on('updateAvailable', () => {
-            this.setStatus(`Actualización disponible!`);
+            this.setStatus(`Actualización disponible✅`);
             ipcRenderer.send('start-update');
         })
 
@@ -72,7 +72,7 @@ class Splash {
         })
 
         ipcRenderer.on('update-not-available', () => {
-            console.error("Actualización no disponible");
+            console.error("❌Actualización no disponible❌");
             this.maintenanceCheck();
         })
     }
@@ -83,7 +83,7 @@ class Splash {
             this.startLauncher();
         }).catch(e => {
             console.error(e);
-            return this.shutdown("Sin conexión a Internet detectada,<br>Vuelve a intentarlo más tarde.");
+            return this.shutdown("🛜Sin conexión a Internet detectada,<br>Vuelve a intentarlo más tarde🛜");
         })
     }
 
@@ -94,10 +94,10 @@ class Splash {
     }
 
     shutdown(text) {
-        this.setStatus(`${text}<br>Parar en 8s`);
+        this.setStatus(`${text}<br>🛑Parar en 8s🛑`);
         let i = 4;
         setInterval(() => {
-            this.setStatus(`${text}<br>Parar en ${i--}s`);
+            this.setStatus(`${text}<br>🛑Parar en ${i--}s🛑`);
             if (i < 0) ipcRenderer.send('update-window-close');
         }, 1000);
     }
