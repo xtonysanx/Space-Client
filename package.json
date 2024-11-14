@@ -1,7 +1,7 @@
 {
     "name": "space-client",
     "preductname": "Space Client",
-    "version": "2.0.3",
+    "version": "2.0.4",
     "description": "Launcher Minecraft Custom.",
     "main": "src/app.js",
     "author": {
@@ -9,7 +9,7 @@
         "url": "https://github.com/xtonysanx"
     },
     "url": "https://xtony.net/LauncherWeb",
-    "discord_url": "https://dsc.gg/ehTebhcu5V",
+    "discord_url": "https://discord.gg/ehTebhcu5V",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",

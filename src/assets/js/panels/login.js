@@ -32,14 +32,8 @@ class Login {
         let popupLogin = new popup();
         let loginHome = document.querySelector('.login-home');
         let microsoftBtn = document.querySelector('.connect-home');
-        let crackBtn = document.querySelector('.connect-crack');
         loginHome.style.display = 'block';
 
-        crackBtn.addEventListener("click", () => {
-            this.getCrack();
-        
-        });
-        
         microsoftBtn.addEventListener("click", () => {
             popupLogin.openPopup({
                 title: 'Conectando',
@@ -79,7 +73,7 @@ class Login {
             if (emailOffline.value.length < 3) {
                 popupLogin.openPopup({
                     title: 'Error',
-                    content: 'Tu apodo debe tener al menos 3 caracteres.',
+                    content: 'Tu apodo no debe contener d\'espacios.',
                     options: true
                 });
                 return;
@@ -88,7 +82,7 @@ class Login {
             if (emailOffline.value.match(/ /g)) {
                 popupLogin.openPopup({
                     title: 'Error',
-                    content: 'Tu apodo no debe contener d\'espacios..',
+                    content: 'Tu apodo no debe contener d\'espacios.',
                     options: true
                 });
                 return;
