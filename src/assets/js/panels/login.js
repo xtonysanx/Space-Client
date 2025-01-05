@@ -32,24 +32,34 @@ class Login {
         let popupLogin = new popup();
         let loginHome = document.querySelector('.login-home');
         let microsoftBtn = document.querySelector('.connect-home');
+        let crackBtn = document.querySelector('.connect-crack');
+        let cancelBtnHome = document.querySelector('.cancel-home');
+    
+        // Mostrar la pantalla principal
         loginHome.style.display = 'block';
-
+        cancelBtnHome.style.display = 'none'; // Asegúrate de que esté oculto inicialmente
+    
+        // Evento para la cuenta Offline
+        crackBtn.addEventListener("click", () => {
+            this.getCrack(); // Llamar a la función getCrack
+        });
+    
+        // Evento para la cuenta de Microsoft
         microsoftBtn.addEventListener("click", () => {
             popupLogin.openPopup({
                 title: 'Conectando',
-                content: 'Espere por favor⏳',
+                content: 'Espere por favor ⏳',
                 color: 'var(--color)'
             });
-
+    
             ipcRenderer.invoke('Microsoft-window', this.config.client_id).then(async account_connect => {
-                if (account_connect == 'cancel' || !account_connect) {
+                if (account_connect === 'cancel' || !account_connect) {
                     popupLogin.closePopup();
                     return;
                 } else {
-                    await this.saveData(account_connect)
+                    await this.saveData(account_connect);
                     popupLogin.closePopup();
                 }
-
             }).catch(err => {
                 popupLogin.openPopup({
                     title: 'Error',
@@ -57,39 +67,52 @@ class Login {
                     options: true
                 });
             });
-        })
+        });
     }
-
+    
     async getCrack() {
         console.log('Iniciando cuenta Offline.');
         let popupLogin = new popup();
+        let loginHome = document.querySelector('.login-home');
         let loginOffline = document.querySelector('.login-offline');
-
         let emailOffline = document.querySelector('.email-offline');
         let connectOffline = document.querySelector('.connect-offline');
-        loginOffline.style.display = 'block';
-
+        let cancelBtnOffline = document.querySelector('.cancel-offline');
+    
+        // Mostrar vista de cuenta Offline
+        loginHome.style.display = 'none'; // Ocultar la pantalla principal
+        loginOffline.style.display = 'block'; // Mostrar la vista de Offline
+        cancelBtnOffline.style.display = 'block'; // Asegurarse de que el botón de cancelar esté visible
+    
+        // Evento de Cancelar para regresar a loginHome desde Offline
+        cancelBtnOffline.addEventListener("click", () => {
+            loginOffline.style.display = 'none'; // Ocultar la vista de Offline
+            loginHome.style.display = 'block'; // Mostrar la pantalla principal
+            cancelBtnOffline.style.display = 'none'; // Ocultar el botón de cancelar
+        });
+    
+        // Evento de Conectar en modo Offline
         connectOffline.addEventListener('click', async () => {
             if (emailOffline.value.length < 3) {
                 popupLogin.openPopup({
                     title: 'Error',
-                    content: 'Tu apodo no debe contener d\'espacios.',
+                    content: 'Tu apodo debe tener al menos 3 caracteres.',
                     options: true
                 });
                 return;
             }
-
+    
             if (emailOffline.value.match(/ /g)) {
                 popupLogin.openPopup({
                     title: 'Error',
-                    content: 'Tu apodo no debe contener d\'espacios.',
+                    content: 'Tu apodo no debe contener espacios.',
                     options: true
                 });
                 return;
             }
-
+    
             let MojangConnect = await Mojang.login(emailOffline.value);
-
+    
             if (MojangConnect.error) {
                 popupLogin.openPopup({
                     title: 'Error',
@@ -98,11 +121,15 @@ class Login {
                 });
                 return;
             }
-            await this.saveData(MojangConnect)
+    
+            await this.saveData(MojangConnect);
             popupLogin.closePopup();
+            loginOffline.style.display = 'none'; // Oculta la vista de Offline después de iniciar sesión
+            loginHome.style.display = 'block'; // Muestra la pantalla principal
+            cancelBtnOffline.style.display = 'none'; // Oculta el botón de cancelar
         });
-    }
-
+    }  
+    
     async getAZauth() {
         console.log('Iniciando cuenta de AZauth.');
         let AZauthClient = new AZauth(this.config.online);

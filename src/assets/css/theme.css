@@ -1,13 +1,13 @@
 .global {
-    --element-color: #00bd7a;
+    --element-color: #0026ff;
     --transition: all 0.5s cubic-bezier(1, 0.46, 0, 1.29);
-    --dark-color: #292929;
-    --light-color: rgb(255, 255, 255);
+    --dark-color: #646464;
+    --light-color: #ffffff;
 }
 
 .dark {
-    --color: #F5F5F5;
-    --background: #292929;
+    --color: #f8f8f8;
+    --background: #333333b4;
     --background-element: #424242;
     --background-transparent: #2c2c2ccc;
     --shadow: rgba(25, 25, 25, 0.7);
@@ -15,10 +15,10 @@
 }
 
 .light {
-    --color: #151515;
-    --background: rgb(245, 245, 245);
-    --background-element: #c2c2c2;
-    --background-transparent: rgba(204, 204, 204, 0.8);
-    --shadow: rgba(208, 208, 208, 0.7);
+    --color: #ffffff;
+    --background: #636363b3;
+    --background-element: #636363b3;
+    --background-transparent: #636363b3;
+    --shadow: rgba(158, 153, 153, 0.603);
     --svg-color: brightness(0) saturate(100%) invert(0%) sepia(5%) saturate(1719%) hue-rotate(357deg) brightness(94%) contrast(84%);
 }

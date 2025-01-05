@@ -25,17 +25,29 @@
     font-size: 1.3rem;
 }
 
-.connect,
-.cancel {
+/*******************************************************************************
+ * Botones interactivos (Borde estático con brillo al pasar el cursor)
+ ******************************************************************************/
+ .connect, .cancel {
     background: none;
     color: var(--color);
-    border: solid 4px var(--element-color);
+    border: 3px solid transparent;
     border-radius: 10px;
     padding: 0.3rem 4rem;
     font-size: inherit;
     font-weight: bold;
     margin: 15px 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    background: linear-gradient(var(--background), var(--background)) padding-box, 
+                linear-gradient(45deg, #ff00ff, #00ffff) border-box;
 }
+
+.connect:hover, .cancel:hover {
+    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+    transform: scale(1.05);
+}
+
 
 .input-login .email,
 .input-login .password,

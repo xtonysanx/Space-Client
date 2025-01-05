@@ -376,3 +376,26 @@
 .active-instance {
     background: var(--element-color);
 }
+
+.cancel {
+    cursor: pointer;
+    background: none;                     /* Sin fondo */
+    color: var(--color);                  /* Color del texto */
+    border: solid 4px var(--element-color); /* Bordes */
+    border-radius: 10px;                  /* Bordes redondeados */
+    padding: 0.3rem 4rem;                 /* Espaciado interno */
+    font-size: inherit;                   /* Tamaño de fuente */
+    font-weight: bold;                    /* Negrita */
+    margin: 5px 0;                        /* Espacio entre botones */
+}
+
+.connect:hover, .cancel:hover {
+    opacity: 0.5;                         /* Cambiar opacidad al pasar el mouse */
+}
+
+.login-options {
+    display: flex;                /* Usa flexbox para alinear los elementos */
+    flex-direction: column;       /* Alinear los botones en columna */
+    align-items: center;         /* Centrar horizontalmente */
+    justify-content: center;      /* Centrar verticalmente */
+}
