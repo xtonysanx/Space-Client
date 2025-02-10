@@ -25,10 +25,7 @@
     font-size: 1.3rem;
 }
 
-/*******************************************************************************
- * Botones interactivos (Borde estático con brillo al pasar el cursor)
- ******************************************************************************/
- .connect, .cancel {
+.connect, .cancel {
     background: none;
     color: var(--color);
     border: 3px solid transparent;
@@ -40,11 +37,16 @@
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     background: linear-gradient(var(--background), var(--background)) padding-box, 
-                linear-gradient(45deg, #ff00ff, #00ffff) border-box;
+                linear-gradient(45deg, #2600ff, #00aeff) border-box;
 }
 
-.connect:hover, .cancel:hover {
-    box-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+.connect:hover {
+    box-shadow: 0 0 10px #0400db, 0 0 20px #006eff;
+    transform: scale(1.05);
+}
+
+.cancel:hover {
+    box-shadow: 0 0 10px #0400ff, 0 0 20px #0051ff;
     transform: scale(1.05);
 }
 
