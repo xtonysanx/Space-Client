@@ -1,14 +1,14 @@
 {
     "name": "space-client",
     "preductname": "Space Client",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "description": "Launcher Minecraft Custom.",
     "main": "src/app.js",
     "author": {
         "name": "xToNySaNx",
         "url": "https://github.com/xtonysanx"
     },
-    "url": "https://xtony.net/LauncherWeb",
+    "url": "http://193.122.148.250:80/LauncherWeb",
     "discord_url": "https://discord.gg/ehTebhcu5V",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
@@ -24,7 +24,7 @@
     "dependencies": {
         "discord-webhook-node": "^1.0.0",
         "electron-updater": "^6.1.8",
-        "minecraft-java-core": "^3.11.2",
+        "minecraft-java-core": "^4.1.1",
         "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
         "xml-js": "^1.6.11"
