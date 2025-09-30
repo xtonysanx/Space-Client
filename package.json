@@ -1,7 +1,7 @@
 {
     "name": "space-client",
     "preductname": "Space Client",
-    "version": "2.0.7",
+    "version": "2.0.8",
     "description": "Launcher Minecraft Custom.",
     "main": "src/app.js",
     "author": {
@@ -24,7 +24,7 @@
     "dependencies": {
         "discord-webhook-node": "^1.0.0",
         "electron-updater": "^6.1.8",
-        "minecraft-java-core": "^4.1.1",
+        "minecraft-java-core": "^4.1.7",
         "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
         "xml-js": "^1.6.11"
