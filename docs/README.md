@@ -88,7 +88,7 @@ Si tiene alguna pregunta, un problema o sugerencias no dudan en unirse a nuestro
 <br>
 <br>
 
-[<p align="center">]() *Readme creado por [@xToNySaNx](https://github.com/xtonysanx)*  </p>
+[<p align="center">]() *Readme traducido por [@xToNySaNx](https://github.com/xtonysanx)*  </p>
 
 ---
 
