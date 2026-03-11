@@ -1,6 +1,6 @@
 /**
  * @author Luuxis
- * Luuxis License v1.0 (voir fichier LICENSE pour les détails en FR/EN)
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 const { AZauth, Mojang } = require('minecraft-java-core');
 const { ipcRenderer } = require('electron');
@@ -28,7 +28,7 @@ class Login {
     }
 
     async getMicrosoft() {
-        console.log('Iniciando cuenta de Microsoft...');
+        console.log('Iniciando cuenta de Microsoft.');
         let popupLogin = new popup();
         let loginHome = document.querySelector('.login-home');
         let microsoftBtn = document.querySelector('.connect-home');
@@ -61,7 +61,7 @@ class Login {
     }
 
     async getCrack() {
-        console.log('Iniciando cuenta Offline...');
+        console.log('Iniciando cuenta Offline.');
         let popupLogin = new popup();
         let loginOffline = document.querySelector('.login-offline');
 
@@ -73,7 +73,7 @@ class Login {
             if (emailOffline.value.length < 3) {
                 popupLogin.openPopup({
                     title: 'Error',
-                    content: 'Su nombre de usuario debe tener al menos 3 caracteres.',
+                    content: 'Tu apodo no debe contener d\'espacios.',
                     options: true
                 });
                 return;
@@ -82,7 +82,7 @@ class Login {
             if (emailOffline.value.match(/ /g)) {
                 popupLogin.openPopup({
                     title: 'Error',
-                    content: 'Su nombre de usuario no debe contener espacios.',
+                    content: 'Tu apodo no debe contener d\'espacios.',
                     options: true
                 });
                 return;
@@ -102,9 +102,9 @@ class Login {
             popupLogin.closePopup();
         });
     }
-
+       
     async getAZauth() {
-        console.log('Iniciando login de AZauth...');
+        console.log('Iniciando cuenta de AZauth.');
         let AZauthClient = new AZauth(this.config.online);
         let PopupLogin = new popup();
         let loginAZauth = document.querySelector('.login-AZauth');
@@ -121,15 +121,15 @@ class Login {
 
         AZauthConnectBTN.addEventListener('click', async () => {
             PopupLogin.openPopup({
-                title: 'Conectando',
-                content: 'Espere por favor⏳',
+                title: 'Conexión en curso.',
+                content: 'Espere por favor.',
                 color: 'var(--color)'
             });
 
             if (AZauthEmail.value == '' || AZauthPassword.value == '') {
                 PopupLogin.openPopup({
                     title: 'Error',
-                    content: 'Por favor, complete todos los campos.',
+                    content: 'Por favor complete todos los campos.',
                     options: true
                 });
                 return;

@@ -6,5 +6,6 @@
         "**/dist": true,
         "**/app": true,
         "**/.gitignore": true
-    }
+    },
+    "workbench.externalBrowser": "chrome"
 }

@@ -1,97 +1,70 @@
 /**
  * @author Luuxis
- * Luuxis License v1.0 (voir fichier LICENSE pour les détails en FR/EN)
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
-const Store = require('electron-store');
-const crypto = require('crypto');
-const path = require('path');
-const fs = require('fs');
-const { ipcRenderer } = require('electron');
+const { NodeBDD, DataType } = require('node-bdd');
+const nodedatabase = new NodeBDD()
+const { ipcRenderer } = require('electron')
 
 let dev = process.env.NODE_ENV === 'dev';
 
 class database {
-    constructor() {
-        this.store = null;
-        this.initialized = false;
+    async creatDatabase(tableName, tableConfig) {
+        return await nodedatabase.intilize({
+            databaseName: 'Databases',
+            fileType: 'db',
+            tableName: tableName,
+            path: `${await ipcRenderer.invoke('path-user-data')}${dev ? '../..' : '/databases'}`,
+            tableColumns: tableConfig,
+        });
     }
 
-    async initStore() {
-        if (!this.initialized) {
-            const userDataPath = await ipcRenderer.invoke('path-user-data');
-            this.store = new Store({
-                name: 'launcher-data',
-                cwd: userDataPath,
-                encryptionKey: dev ? undefined : (await this.getKey(32, userDataPath)),
-            });
-            this.initialized = true;
-        }
-        return this.store;
+    async getDatabase(tableName) {
+        return await this.creatDatabase(tableName, {
+            json_data: DataType.TEXT.TEXT,
+        });
     }
 
     async createData(tableName, data) {
-        await this.initStore();
-        let tableData = this.store.get(tableName, []);
-
-        // Générer un nouvel ID
-        const maxId = tableData.length > 0
-            ? Math.max(...tableData.map(item => item.ID || 0))
-            : 0;
-        const newId = maxId + 1;
-
-        data.ID = newId;
-        tableData.push(data);
-        this.store.set(tableName, tableData);
-
-        return data;
+        let table = await this.getDatabase(tableName);
+        data = await nodedatabase.createData(table, { json_data: JSON.stringify(data) })
+        let id = data.id
+        data = JSON.parse(data.json_data)
+        data.ID = id
+        return data
     }
 
     async readData(tableName, key = 1) {
-        await this.initStore();
-        let tableData = this.store.get(tableName, []);
-        let data = tableData.find(item => item.ID === key);
-        return data ? data : undefined;
+        let table = await this.getDatabase(tableName);
+        let data = await nodedatabase.getDataById(table, key)
+        if (data) {
+            let id = data.id
+            data = JSON.parse(data.json_data)
+            data.ID = id
+        }
+        return data ? data : undefined
     }
 
     async readAllData(tableName) {
-        await this.initStore();
-        return this.store.get(tableName, []);
+        let table = await this.getDatabase(tableName);
+        let data = await nodedatabase.getAllData(table)
+        return data.map(info => {
+            let id = info.id
+            info = JSON.parse(info.json_data)
+            info.ID = id
+            return info
+        })
     }
 
     async updateData(tableName, data, key = 1) {
-        await this.initStore();
-        let tableData = this.store.get(tableName, []);
-        const index = tableData.findIndex(item => item.ID === key);
-
-        if (index !== -1) {
-            data.ID = key;
-            tableData[index] = data;
-            this.store.set(tableName, tableData);
-        } else {
-            data.ID = key;
-            tableData.push(data);
-            this.store.set(tableName, tableData);
-        }
+        let table = await this.getDatabase(tableName);
+        await nodedatabase.updateData(table, { json_data: JSON.stringify(data) }, key)
     }
 
     async deleteData(tableName, key = 1) {
-        await this.initStore();
-        let tableData = this.store.get(tableName, []);
-        tableData = tableData.filter(item => item.ID !== key);
-        this.store.set(tableName, tableData);
-    }
-
-    async getKey(length, userDataPath) {
-        const keyPath = path.join(userDataPath, 'key.txt');
-
-        if (fs.existsSync(keyPath)) {
-            return fs.readFileSync(keyPath, 'utf-8');
-        } else {
-            const key = crypto.randomBytes(length).toString('hex');
-            fs.writeFileSync(keyPath, key);
-            return key;
-        }
+        let table = await this.getDatabase(tableName);
+        await nodedatabase.deleteData(table, key)
     }
 }
 

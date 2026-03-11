@@ -1,19 +1,20 @@
 {
     "name": "space-client",
     "preductname": "Space Client",
-    "version": "2.0.10",
-    "description": "Launcher Minecraft Custom",
+    "version": "2.0.9",
+    "description": "Launcher Minecraft Custom.",
     "main": "src/app.js",
     "author": {
         "name": "xToNySaNx",
         "url": "https://github.com/xtonysanx"
     },
     "url": "http://193.122.148.250:80/LauncherWeb",
+    "discord_url": "https://discord.gg/ehTebhcu5V",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon"
+        "icon": "node build.js --icon=https://raw.githubusercontent.com/xtonysanx/Space-Client/versiones/src/assets/images/icon.png"
     },
     "license": "CCANC",
     "nodemonConfig": {
@@ -21,15 +22,15 @@
         "ignore": "**/test"
     },
     "dependencies": {
-        "electron-store": "^8.2.0",
-        "electron-updater": "^6.7.3",
-        "minecraft-java-core": "^4.2.5",
+        "electron-updater": "^6.6.2",
+        "minecraft-java-core": "^4.2.3",
+        "node-bdd": "^2.0.4",
         "node-fetch": "^2.7.0",
         "xml-js": "^1.6.11"
     },
     "devDependencies": {
         "cross-env": "^10.1.0",
-        "electron": "^40.0.0",
+        "electron": "^39.2.7",
         "electron-builder": "^26.0.12",
         "javascript-obfuscator": "^5.1.0",
         "jimp": "^1.6.0",

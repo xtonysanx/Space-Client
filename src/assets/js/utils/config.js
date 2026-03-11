@@ -1,6 +1,6 @@
 /**
  * @author Luuxis
- * Luuxis License v1.0 (voir fichier LICENSE pour les détails en FR/EN)
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
 const pkg = require('../package.json');
@@ -8,15 +8,15 @@ const nodeFetch = require("node-fetch");
 const convert = require('xml-js');
 let url = pkg.user ? `${pkg.url}/${pkg.user}` : pkg.url
 
-let config = `${url}/config`;
-let articles = `${url}/articles`;
+let config = `${url}/launcher/config-launcher/config.json`;
+let news = `${url}/launcher/news-launcher/news.json`;
 
 class Config {
     GetConfig() {
         return new Promise((resolve, reject) => {
             nodeFetch(config).then(async config => {
                 if (config.status === 200) return resolve(config.json());
-                else return reject({ error: { code: config.statusText, message: 'servidor no disponible' } });
+                else return reject({ error: { code: config.statusText, message: 'servidor no accesible' } });
             }).catch(error => {
                 return reject({ error });
             })
@@ -24,19 +24,22 @@ class Config {
     }
 
     async getInstanceList() {
-        let urlInstance = `${url}/instances`
+        let urlInstance = `${url}/files`
         let instances = await nodeFetch(urlInstance).then(res => res.json()).catch(err => err)
         let instancesList = []
         instances = Object.entries(instances)
 
         for (let [name, data] of instances) {
             let instance = data
+            instance.name = name
             instancesList.push(instance)
         }
         return instancesList
     }
 
-    async getNews(config) {
+    async getNews() {
+        let config = await this.GetConfig() || {}
+
         if (config.rss) {
             return new Promise((resolve, reject) => {
                 nodeFetch(config.rss).then(async config => {
@@ -56,14 +59,14 @@ class Config {
                         }
                         return resolve(news);
                     }
-                    else return reject({ error: { code: config.statusText, message: 'servidor no disponible' } });
+                    else return reject({ error: { code: config.statusText, message: 'servidor no accesible' } });
                 }).catch(error => reject({ error }))
             })
         } else {
             return new Promise((resolve, reject) => {
-                nodeFetch(articles).then(async config => {
+                nodeFetch(news).then(async config => {
                     if (config.status === 200) return resolve(config.json());
-                    else return reject({ error: { code: config.statusText, message: 'servidor no disponible' } });
+                    else return reject({ error: { code: config.statusText, message: 'servidor no accesible' } });
                 }).catch(error => {
                     return reject({ error });
                 })

@@ -1,6 +1,6 @@
 /**
  * @author Luuxis
- * Luuxis License v1.0 (voir fichier LICENSE pour les détails en FR/EN)
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 
 const { app, ipcMain, nativeTheme } = require('electron');
@@ -9,7 +9,6 @@ const { autoUpdater } = require('electron-updater')
 
 const path = require('path');
 const fs = require('fs');
-const Store = require('electron-store');
 
 const UpdateWindow = require("./assets/js/windows/updateWindow.js");
 const MainWindow = require("./assets/js/windows/mainWindow.js");
@@ -24,8 +23,6 @@ if (dev) {
     app.setPath('userData', appPath);
     app.setPath('appData', appdata)
 }
-
-Store.initRenderer();
 
 if (!app.requestSingleInstanceLock()) app.quit();
 else app.whenReady().then(() => {

@@ -1,6 +1,6 @@
 /**
  * @author Luuxis
- * Luuxis License v1.0 (voir fichier LICENSE pour les détails en FR/EN)
+ * @license CC-BY-NC 4.0 - https://creativecommons.org/licenses/by-nc/4.0
  */
 import { config, database, logger, changePanel, appdata, setStatus, pkg, popup } from '../utils.js'
 
@@ -20,21 +20,20 @@ class Home {
 
     async news() {
         let newsElement = document.querySelector('.news-list');
-        let news = await config.getNews(this.config).then(res => res).catch(err => false);
+        let news = await config.getNews().then(res => res).catch(err => false);
         if (news) {
             if (!news.length) {
                 let blockNews = document.createElement('div');
-                const date = this.getdate(new Date())
                 blockNews.classList.add('news-block');
                 blockNews.innerHTML = `
                     <div class="news-header">
-                        <img class="server-status-icon" src="assets/images/icon/icon.png">
+                        <img class="server-status-icon" src="assets/images/icon.png">
                         <div class="header-text">
                             <div class="title">No hay noticias disponibles actualmente.</div>
                         </div>
                         <div class="date">
-                            <div class="day">${date.day}</div>
-                            <div class="month">${date.month}</div>
+                            <div class="day">1</div>
+                            <div class="month">Enero</div>
                         </div>
                     </div>
                     <div class="news-content">
@@ -50,7 +49,7 @@ class Home {
                     blockNews.classList.add('news-block');
                     blockNews.innerHTML = `
                         <div class="news-header">
-                            <img class="server-status-icon" src="assets/images/icon/icon.png">
+                            <img class="server-status-icon" src="assets/images/icon.png">
                             <div class="header-text">
                                 <div class="title">${News.title}</div>
                             </div>
@@ -70,17 +69,16 @@ class Home {
             }
         } else {
             let blockNews = document.createElement('div');
-            const date = this.getdate(new Date())
             blockNews.classList.add('news-block');
             blockNews.innerHTML = `
                 <div class="news-header">
-                        <img class="server-status-icon" src="assets/images/icon/icon.png">
+                        <img class="server-status-icon" src="assets/images/icon.png">
                         <div class="header-text">
                             <div class="title">Error.</div>
                         </div>
                         <div class="date">
-                            <div class="day">${date.day}</div>
-                            <div class="month">${date.month}</div>
+                            <div class="day">1</div>
+                            <div class="month">Enero</div>
                         </div>
                     </div>
                     <div class="news-content">
@@ -139,7 +137,7 @@ class Home {
                         await this.db.updateData('configClient', configClient)
                     }
                 }
-            } else console.log(`Iniciando Instancia para ${instance.name}...`)
+            } else console.log(`Iniciando Instancia para ${instance.name}.`)
             if (instance.name == instanceSelect) setStatus(instance.status)
         }
 
@@ -217,27 +215,22 @@ class Home {
             timeout: 10000,
             path: `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
             instance: options.name,
-            version: options.loader.minecraft_version,
+            version: options.loadder.minecraft_version,
             detached: configClient.launcher_config.closeLauncher == "close-all" ? false : true,
             downloadFileMultiple: configClient.launcher_config.download_multi,
             intelEnabledMac: configClient.launcher_config.intelEnabledMac,
 
             loader: {
-                type: options.loader.loader_type,
-                build: options.loader.loader_version,
-                enable: options.loader.loader_type == 'none' ? false : true
+                type: options.loadder.loadder_type,
+                build: options.loadder.loadder_version,
+                enable: options.loadder.loadder_type == 'none' ? false : true
             },
 
             verify: options.verify,
 
             ignored: [...options.ignored],
 
-            java: {
-                path: configClient.java_config.java_path,
-            },
-
-            JVM_ARGS:  options.jvm_args ? options.jvm_args : [],
-            GAME_ARGS: options.game_args ? options.game_args : [],
+            javaPath: configClient.java_config.java_path,
 
             screen: {
                 width: configClient.game_config.screen_size.width,
@@ -290,7 +283,7 @@ class Home {
         launch.on('patch', patch => {
             console.log(patch);
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `Parche en progreso...`
+            infoStarting.innerHTML = `Parche en progreso.`
         });
 
         launch.on('data', (e) => {
@@ -300,7 +293,7 @@ class Home {
             };
             new logger('Minecraft', '#36b030');
             ipcRenderer.send('main-window-progress-load')
-            infoStarting.innerHTML = `En curso...`
+            infoStarting.innerHTML = `En curso.`
             console.log(e);
         })
 

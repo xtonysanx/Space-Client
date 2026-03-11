@@ -1,82 +1,95 @@
-<p align="center"><img src="../src/assets/images/icon/icon.png" alt="icon-launcher"></p>
+<p align="center"><img src="../src/assets/images/icon.png" alt="icon-launcher"></p>
 
-<h1 align="center">Selvania Launcher</h1>
+<h1 align="center">Space Client</h1>
 
 [<p align="center">]()
-![GitHub all releases](https://img.shields.io/github/downloads/luuxis/Selvania-Launcher/total?style=for-the-badge)
-![Discord](https://img.shields.io/discord/819729377650278420?style=for-the-badge)
-![GitHub package.json version](https://img.shields.io/github/package-json/v/luuxis/Selvania-Launcher?style=for-the-badge)
+![GitHub all releases](https://img.shields.io/github/downloads/xtonysanx/Space-Client/total?style=for-the-badge2)
+![Discord](https://img.shields.io/discord/900807104548450335?style=for-the-badge4)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/xtonysanx/Space-Client?style=for-the-badge2)
 [<p align="center">]()
-![GitHub forks](https://img.shields.io/github/forks/luuxis/Selvania-Launcher?style=for-the-badge)
-![GitHub Repo stars](https://img.shields.io/github/stars/luuxis/Selvania-Launcher?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/xtonysanx/Space-Client?style=for-the-badge2)
+![GitHub Repo stars](https://img.shields.io/github/stars/xtonysanx/Space-Client?style=for-the-badge2)
 
 <p align="center">
-    <a href="http://discord.luuxis.fr">
-        <img src="https://invidget.switchblade.xyz/e9q7Yr2cuQ">
+    <a href="https://discord.gg/ehTebhcu5V">
+        <img src="https://invidget.switchblade.xyz/ehTebhcu5V">
     </a>
 </p>
 
 ---
-📝 Licence : Luuxis License v1.0 (voir fichier LICENSE pour les détails en FR/EN)
----
-### **<ins><p align="center">Conditions d'utilisation:</p>**
-- Pour utiliser le code vous devez faire un fork du projet.
-- Pour utiliser le code votre code doit tout le temps être public.
-- Pour utiliser le code toute mention originale de la licence doit être gardé.
-- Pour utiliser le code vous devez garder la licence originale.
+### **<ins><p align="center">Condiciones de uso:</p>**
+- Para usar el código, debe hacer una bifurcación de proyecto.
+- Para usar el código, su código debe ser público todo el tiempo.
+- Para usar el código, se debe mantener cualquier mención original de la licencia.
+- Para usar el código, debe mantener la licencia original.
 ---
 
-### **<ins><p align="center">Fonctionnalitées du launcher :</p>**
+### **<ins><p align="center">Funciones del Launcher:</p>**
 
-- ✅ Mise à jour automatiques via github.
+- ✅ Actualización automática a través de GitHub.
 
-- 🔴 Option pour mettre le launcher en maintenance.
+- 🔴 Opción para poner el Launcher en mantenimiento.
 
-- 🔒 Authentification Microsoft.
+- 🔒 Autenticación de Microsoft.
 
-- ⛏️ Supporte toutes versions de Minecraft 1.0 > latest.
+- ⛏️ Admite todas las versiones de Minecraft 1.0> Último.
 
-- 📦 Supporte les version moddées Forge, NeoForge, LegacyFabric, FabricMC et Quilt
+- 📦 Admite Moddées Forge, Neoforge, Legacyfabric, Fabricc y Quilt
 
-- 📰 Fil d'actualité intégré nativement au launcher.
+- 📰 Línea de noticias integrada de forma nativa en el Launcher.
 
-- ⚙️ Gestion intuitive des paramètres, y compris un panneau de configuration Java.
+- ⚙️ Gestión intuitiva de parámetros, incluido un panel de configuración de Java.
 
-- 🟢 Statut serveur complet.
+- 🟢 Complete el estado del servidor.
 
-    - Opérationnel ou hors ligne.
+    - operativo o fuera de línea.
     
-    - Nombres de joueurs connectés.
+    - desnudos de jugadores conectados.
 
-- ☕ Installation de Java automatique.
+- ☕ Instalación automática de Java.
 
-    - Si vous avez installé une version incompatible de Java, nous installerons la bonne pour vous.
+    - Si ha instalado una versión incompatible de Java, instalaremos la adecuada para usted.
     
-    - Vous n'avez pas besoin d'avoir Java installé pour exécuter le launcher.
+    - No necesita tener Java instalado para ejecutar el Launcher.
 
-Ce n'est pas une liste exhaustive. Installez le launcher pour voir tout ce qu'il peut faire !
+Esta no es una lista exhaustiva.¡Instale el Launcher para ver todo lo que pueda hacer!
 
-Vous aimez le projet ? Laissez une étoile ⭐ sur le repo !
+¿Te gusta el proyecto?¡Deja una estrella ⭐ en el repositorio!
 
 ---
 
-### **<ins><p align="center">Téléchargement :</p>**
+### **<ins><p align="center">Descargas:</p>**
 
-Vous pouvez télécharger le launcher à partir des [Releases GitHub](../../../releases).
+Puede descargar el Launcher desde el [Releases GitHub](../../../releases).
 
-Plateformes supportées :
+Plataformas compatibles :
 
 - Windows 
 - Linux
 - MacOS
 
-Si vous téléchargez à partir des Releases, sélectionnez le programme d'installation de votre système.
-
- Plateforme | Fichier |
+Si se descarga de los lanzamientos, seleccione el programa de instalación para su sistema.
+ Plataforma | Archivos |
 | -------- | ---- |
-| Windows x64 | `Selvania-Launcher-win-x64.exe ` |
-| macOS x64 | `Selvania-Launcher-mac-x64.dmg` |
-| macOS arm64 | `Selvania-Launcher-mac-arm64.dmg` |
-| Linux x64 | `Selvania-Launcher-linux-x86_64.AppImage` |
+| Windows x64 | `Space-Client-win-x64.exe` |
+| macOS x64 | `Space-Client-mac-x64.dmg` |
+| macOS arm64 | `Space-Client-mac-arm64.dmg` |
+| Linux x64 | `Space-Client-linux-x86_64.AppImage` |
+
+<br>
+
+Si le gusta este proyecto y desea ayudar a desarrollarlo, puede darnos una donación sobre [Paypal](https://www.paypal.me/anthonnysan03).
+
+Si tiene alguna pregunta, un problema o sugerencias no dudan en unirse a nuestro discord:
+
+<br>
+
+[![discord](https://discordapp.com/api/guilds/900807104548450335/embed.png?style=banner2)][discord]
+<br>
+<br>
+
+[<p align="center">]() *Readme creado por [@xToNySaNx](https://github.com/xtonysanx)*  </p>
 
 ---
+
+[discord]: https://discord.gg/ehTebhcu5V 'Discord'
