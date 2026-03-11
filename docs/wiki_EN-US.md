@@ -20,7 +20,7 @@ ___
 
 ### 1.2 Fork the project:
 
-To begin you must make a fork of the project to do this go [here](https://github.comu/xtonysanx/Space-Client).
+To begin you must make a fork of the project to do this go [here](https://github.com/luuxis/Selvania-Launcher).
 
 - Then click on "Fork" :
 
@@ -52,7 +52,7 @@ ___
 
 - Wait a few seconds while the project is downloaded to your computer.
 
-![Cloning in progress.](./images/loading.png)
+![Cloning in progress...](./images/loading.png)
 
 - Once the project is downloaded, click on "For my own purposes" and then on "Continue" :
 
@@ -265,7 +265,7 @@ You also need to download Visual C++ Redistributable Visual Studio 2015-2022 for
 - Look for (ctrl + f) the following line: "#ServerName www.example.com:80"
 - Remove the # and save the file.
 - Do Win + r and enter this "C:\Windows\System32\systempropertiesadvanced.exe" and click on enter.
-- Click on "Environment Variable." and select "Path" click on "modify" then click on "New" and enter "C:\Apache24\bin" and click on OK.
+- Click on "Environment Variable..." and select "Path" click on "modify" then click on "New" and enter "C:\Apache24\bin" and click on OK.
 - Restart your computer.
 - Open the command prompt (windows + R) and enter cmd then click on Ctrl + Shift + enter windows will ask you for the administrator rights click on "Ok".
 - Enter the following commands:
@@ -291,7 +291,7 @@ ___
 - One extract rename the folder to "php".
 - Move the "php" folder to the root directory ("C:\") of your computer.
 - Make Win + r and enter this "C:\Windows\System32\systempropertiesadvanced.exe" and click on enter.
-- Click on "Environment Variable." and select "Path" click on "modify" then click on "New" and enter "C:\php" and click on OK.
+- Click on "Environment Variable..." and select "Path" click on "modify" then click on "New" and enter "C:\php" and click on OK.
 - Restart your computer.
 - Enter the following commands:
 
